@@ -10,7 +10,7 @@ py_files = glob.glob(os.path.join(path, "**/*.py"), recursive=True)
 print(py_files)
 
 # Opening size.txt to append the outputs
-with open("size.txt", 'w') as f:
+with open("output.txt", 'w') as f:
     # Looping through the files
     for file in py_files:
         with open(file, 'r') as file_reader:
