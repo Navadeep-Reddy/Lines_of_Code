@@ -3,13 +3,14 @@ import glob
 import os
 
 # Store the paths of the folder
-path = r"C:\Users\Navadeep Reddy\Documents\CODE\xml"
+path = "/home/navadeep-reddy/Documents/PSP/Lines_of_Code"
 
 # List to store path of every python file
-py_files = glob.glob(os.path.join(path, "**\*.py"), recursive=True)
+py_files = glob.glob(os.path.join(path, "**/*.py"), recursive=True)
+print(py_files)
 
 # Opening size.txt to append the outputs
-with open("size.txt", 'a') as f:
+with open("size.txt", 'w') as f:
     # Looping through the files
     for file in py_files:
         with open(file, 'r') as file_reader:
@@ -47,22 +48,22 @@ with open("size.txt", 'a') as f:
                     func_lines[node.name] = (node.lineno, node.end_lineno)
 
             # Printing the file path and information to console and file
-            output = (f"The file at location {file} has\nTotal Size = {total_lines}\n"
-                      f" Classes = {class_count}\n Methods = {meth_count}\n"
-                      f" Independent Functions = {func_count - meth_count}\n")
+            output = (f"The file at location {file} has\nTotal Size = {total_lines}"
+                      f" Classes = {class_count}\n Methods = {meth_count}"
+                      f" Independent Functions = {func_count - meth_count}")
             print(output)
             f.write(output)
 
             # Printing lines of code for each class and function
             for class_name, (start, end) in class_lines.items():
                 class_loc = end - start + 1
-                class_output = f" Class : {class_name}, has LOC = {class_loc}\n"
+                class_output = f" Class : {class_name}, has LOC = {class_loc}"
                 print(class_output)
                 f.write(class_output)
 
             for func_name, (start, end) in func_lines.items():
                 func_loc = end - start + 1
-                func_output = f" Function : {func_name}, has LOC = {func_loc}\n"
+                func_output = f" Function : {func_name}, has LOC = {func_loc}"
                 print(func_output)
                 f.write(func_output)
 
@@ -70,6 +71,7 @@ with open("size.txt", 'a') as f:
             submodule_loc_total = sum(end - start + 1 for start, end in class_lines.values()) + \
                                   sum(end - start + 1 for start, end in func_lines.values())
             other_loc = total_lines - submodule_loc_total
-            other_loc_output = f" Other LOC = {other_loc}\n\n"
+            if (other_loc < 0): other_loc = 0
+            other_loc_output = f" Other LOC = {other_loc}"
             print(other_loc_output)
             f.write(other_loc_output)
