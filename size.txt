@@ -1,6 +1,6 @@
 The file at location /home/navadeep-reddy/Documents/PSP/Lines_of_Code/lines.py has
-Total Size = 78 Classes = 0
- Methods = 0 Independent Functions = 0 Other LOC = 78The file at location /home/navadeep-reddy/Documents/PSP/Lines_of_Code/test.py has
+Total Size = 77 Classes = 0
+ Methods = 0 Independent Functions = 0 Other LOC = 77The file at location /home/navadeep-reddy/Documents/PSP/Lines_of_Code/test.py has
 Total Size = 5 Classes = 0
  Methods = 0 Independent Functions = 0 Other LOC = 5The file at location /home/navadeep-reddy/Documents/PSP/Lines_of_Code/xml/__init__.py has
 Total Size = 21 Classes = 0
